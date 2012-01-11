@@ -48,12 +48,15 @@ $.fn.configForm = function (options)
 	$.extend(defaults, options);
 
 	/**
-	 *Validações aqui, adicione a sua aqui
+	 *Validaï¿½ï¿½es aqui, adicione a sua aqui
 	 **/
 	var listMethods = {
-			'required' : function(value)
+			'required' : function(value,field)
 			{
-				return !value == "";
+				if(field.attr('type') == 'checkbox'){
+					return field.is(':checked');
+				}
+				return value != "";
 			},
 
 			'email' : function(value)
@@ -111,7 +114,10 @@ $.fn.configForm = function (options)
 	{
 		var result;
 		var value	= field.val();
-		var classes	=  field.attr('class') || ' ';
+		var classes	=  field.attr('class');
+
+		if(!classes) return true;
+
 		classes		=  classes.split(' ');
 
 		var fieldValue	= field.val();
@@ -122,7 +128,7 @@ $.fn.configForm = function (options)
 
 		$.each(classes,function(i, value){
 			if (listMethods.hasOwnProperty(value)) {
-				boolResult = listMethods[value](fieldValue);
+				boolResult = listMethods[value](fieldValue,field);
 				return  boolResult;
 			}
 		})
@@ -135,7 +141,7 @@ $.fn.configForm = function (options)
 		return field.val().length >= parseInt(field.attr("min"));
 	}
 
-	//EVENTOS QUE DISPARA A VALIDAÇÃO
+	//EVENTOS QUE DISPARA A VALIDAï¿½ï¿½O
 
 	//EVENTO SUBMIT
 	self.submit(function ()
