@@ -145,7 +145,9 @@ $.fn.configForm = function (options)
 
 			'cpf' : function (value)
 			{
-				return value == "" ? true : false;
+				if(value == ""){
+					return true;
+				}
 				
 				value = value.replace('.', '');
 				value = value.replace('.', '');
