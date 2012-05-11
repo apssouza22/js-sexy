@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=320; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta name="apple-touch-fullscreen" content="yes" />
+    
+    <title>jQuery Touch Demo</title>
+    
+    <script type="text/javascript" language="javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" language="javascript" src="js/jquery.touch.js"></script>
+    <script type="text/javascript" language="javascript" src="js/site.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="apple-touch-icon" href="http://www.manifestinteractive.com/iphone/touch/apple-touch-icon.png" />
+</head>
+
+<body>
+
+    <div style="position: relative; left: 0px; width: 320px; height: 150px;">
+        <div id="touchme1" class="largetouchbox"><span>#1</span><b>Touch Me :)</b></div>
+        <div id="touchme2" class="largetouchbox"><span>#2</span><b>No, Touch Me :)</b></div>
+    </div>
+    
+    <div style="clear: both;">
+        <div id="touch1" class="smalltouchbox dragx" style="left: 0px; top:150px;"><span>#3</span></div>
+        <div id="touch2" class="smalltouchbox dragx" style="left: 60px; top:150px;"><span>#4</span></div>
+        <div id="touch3" class="smalltouchbox dragy" style="left: 120px; top:150px;"><span>#5</span></div>
+        <div id="touch4" class="smalltouchbox dragy" style="left: 180px; top:150px;"><span>#6</span></div>
+    </div>
+    
+    <div id="notes">
+        
+        <b>TASK:</b><br />
+        Click, Drag, Throw, Rotate &amp; Scale these naughty boxes. You can see each box numbers settings below.
+        
+        <br /><br /><br />
+        
+        <b>NOTE:</b><br />
+        This demo is only functional an the Apple iPod/iPhone running version 2.0+ (This will not work in a Safari "Emulator", It has to have an actual touch screen to work correctly with the internal ontouch* functions. Your mouse is just not cool enough.)
+
+        
+        <br /><br /><br />
+        
+        <b>USAGE &amp; DOWNLOAD:</b>
+        <br /><br />
+        <center><input value="Go to jQuery Touch Page &nbsp;&raquo;" style="width: 270px; margin-bottom: 15px; font-size: 14px;" name="jquery1" type="button" onclick="window.open('http://plugins.jquery.com/project/touch', '_blank')" /></center>
+        <center><input value="Download Source (4.39 KB)" style="width: 270px; margin-bottom: 15px; font-size: 14px;" name="jquery2" type="button" onclick="window.open('http://plugins.jquery.com/files/jquery.touch.js.txt', '_blank')" /></center>
+        <center><input value="Download Compact Source (2.93 KB)" style="width: 270px; font-size: 14px;" name="jquery3" type="button" onclick="window.open('http://plugins.jquery.com/files/jquery.touch.compact.js.txt', '_blank')" /></center>
+    
+        <br /><br />
+        
+        <b>CREATED BY:</b><br />
+        Peter Schmalfeldt of Manifest Interactive
+        
+        <br /><br /><br />
+        
+        <b>BOX #1:</b>
+        <pre>
+        $('#touchme1').touch({
+            animate: true,
+            sticky: false,
+            dragx: true,
+            dragy: true,
+            rotate: true,
+            resort: true,
+            scale: true
+        });
+        </pre>
+        
+        <b>BOX #2:</b>
+        <pre>
+        $('#touchme2').touch({
+            animate: false,
+            sticky: false,
+            dragx: true,
+            dragy: true,
+            rotate: false,
+            resort: true,
+            scale: false
+        });
+        </pre>
+            
+        <b>BOX #3 &amp; 4:</b>
+        <pre>
+        $('.dragx').touch({
+            animate: true,
+            sticky: false,
+            dragx: false,
+            dragy: true,
+            rotate: false,
+            resort: false,
+            scale: false
+        });
+        </pre>
+        
+        <b>BOX #5 &amp; 6:</b>
+        <pre>
+        $('.dragy').touch({
+            animate: true,
+            sticky: false,
+            dragx: true,
+            dragy: false,
+            rotate: false,
+            resort: false,
+            scale: false
+        });
+        </pre>
+    </div>
+</body>
+</html>
